@@ -1,0 +1,220 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eletrodata Engenharia</title>
+  <link rel="icon" href="{% static 'img/logo1.png' %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="{% static 'css/base1.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-gradient fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="{% static '/img/Logo.png'%}" alt="Logo Eletrodata">
+    </a>
+    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navmenu">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="#">A Eletrodata</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Quem Somos</a></li>
+            <li><a class="dropdown-item" href="#">Ética e Compliance</a></li>
+            <li><a class="dropdown-item" href="#">Segmentos e Clientes</a></li>
+            <li><a class="dropdown-item" href="#">Trabalhe conosco</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="#">Serviços</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Manutenção Predial e Industrial</a></li>
+            <li><a class="dropdown-item" href="#">Gestão de Facilities</a></li>
+            <li><a class="dropdown-item" href="#">Gestão de Sistemas Críticos</a></li>
+            <li><a class="dropdown-item" href="#">HVAC</a></li>
+            <li><a class="dropdown-item" href="#">Telecomunicações</a></li>
+            <li><a class="dropdown-item" href="#">Construção Civil</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="#">Vagas Disponíveis</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Ouvidoria</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Corporativo</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contato</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Container Principal -->
+<div class="container mt-5 pt-5 intranet-container">
+  <div class="row g-4">
+
+    <!-- Coluna esquerda: Quadro + Links Úteis -->
+    <div class="col-md-9">
+
+      <!-- Quadro -->
+      <div class="row g-4 quadro">
+
+        <!-- Esquerda: Quadrado maior -->
+        <div class="col-md-6 h-100">
+          <a href="#" class="img-container big-square">
+            <img src="{% static 'img/Compliance.png' %}" alt="Mais de 50 anos de história">
+            <div class="overlay">
+              <h5>Mais de 50 anos de História...</h5>
+            </div>
+          </a>
+        </div>
+
+        <!-- Direita: retangular + 2 quadrados -->
+        <div class="col-md-6 d-flex flex-column gap-3 h-100">
+
+          <!-- Retangular -->
+          <a href="#" class="img-container rect">
+            <img src="{% static 'img/etica.png' %}" alt="Evento novembro azul">
+            <div class="overlay">
+              <h5>2ª edição Corrida Outubro Rosa e Novembro Azul</h5>
+            </div>
+          </a>
+
+          <!-- Linha com 2 quadrados -->
+          <div class="d-flex gap-3">
+            <a href="#" class="img-container small-square flex-fill">
+              <img src="{% static 'img/carrosel-1.png' %}" alt="Equilíbrio é vida!">
+              <div class="overlay">
+                <h5>Equilíbrio é vida!</h5>
+              </div>
+            </a>
+            <a href="#" class="img-container small-square flex-fill">
+              <img src="{% static 'img/bg-etica.png' %}" alt="Campanha Setembro Amarelo">
+              <div class="overlay">
+                <h5>Campanha Setembro Amarelo!</h5>
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Links Úteis -->
+      <div class="mt-4">
+        <h5 class="titulo-links">🔗 Links Úteis</h5>
+        <div class="row g-3">
+
+          <div class="col-md-4">
+            <a href="#" class="link-util">
+              <div class="card-link-horizontal">
+                <i class="bi bi-telephone-fill icon-link-horizontal"></i>
+                <span>Catálogos telefônicos</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-md-4">
+            <a href="#" class="link-util">
+              <div class="card-link-horizontal">
+                <i class="bi bi-laptop-fill icon-link-horizontal"></i>
+                <span>Sistemas corporativos</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-md-4">
+            <a href="#" class="link-util">
+              <div class="card-link-horizontal">
+                <i class="bi bi-globe2 icon-link-horizontal"></i>
+                <span>Site</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-md-4">
+            <a href="#" class="link-util">
+              <div class="card-link-horizontal">
+                <i class="bi bi-envelope-fill icon-link-horizontal"></i>
+                <span>Catálogo de e-mails</span>
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Coluna direita: Aniversariantes + Clima -->
+    <div class="col-md-3 d-flex flex-column gap-4">
+
+      <!-- Aniversariantes -->
+      <div class="sidebar-aniversariantes p-3">
+        <h5 class="titulo-aniversariantes">🎉 Aniversariantes do mês</h5>
+        <ul class="lista-aniversariantes">
+          <li><strong>05/09</strong> - Matheus Siqueira</li>
+          <li><strong>12/09</strong> - Matheus Siqueira</li>
+          <li><strong>25/09</strong> - Matheus Siqueira</li>
+          <li><strong>25/09</strong> - Matheus Siqueira</li>
+        </ul>
+      </div>
+
+      <!-- Clima -->
+<div class="sidebar-clima p-3">
+  <h5 class="titulo-clima">☀️ Clima</h5>
+
+<!-- Cidade 1 -->
+<div class="clima-card">
+  <div class="clima-cidade-topo">Rio de Janeiro - RJ</div>
+  <div class="clima-info d-flex align-items-center justify-content-between mt-1">
+    <div class="d-flex align-items-center gap-2">
+      <i class="bi bi-sun-fill clima-icon"></i>
+      <span class="clima-temp">28°C</span>
+    </div>
+    <span class="clima-desc">Parcialmente ensolarado</span>
+  </div>
+</div>
+
+<!-- Cidade 2 -->
+<div class="clima-card">
+  <div class="clima-cidade-topo">São Paulo - SP</div>
+  <div class="clima-info d-flex align-items-center justify-content-between mt-1">
+    <div class="d-flex align-items-center gap-2">
+      <i class="bi bi-cloud-fill clima-icon"></i>
+      <span class="clima-temp">22°C</span>
+    </div>
+    <span class="clima-desc">Nublado</span>
+  </div>
+</div>
+
+<!-- Cidade 3 -->
+<div class="clima-card">
+  <div class="clima-cidade-topo">Salvador - BA</div>
+  <div class="clima-info d-flex align-items-center justify-content-between mt-1">
+    <div class="d-flex align-items-center gap-2">
+      <i class="bi bi-cloud-rain-fill clima-icon"></i>
+      <span class="clima-temp">18°C</span>
+    </div>
+    <span class="clima-desc">Chuva leve</span>
+  </div>
+</div>
+
+</div>
+
+
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

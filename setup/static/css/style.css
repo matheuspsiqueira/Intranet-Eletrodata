@@ -1,0 +1,224 @@
+/* Container Principal */
+.intranet-container {
+  max-width: 1200px; /* espaço total: quadro + sidebar */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* QUADRO em si */
+.quadro {
+  max-width: 800px; /* mantém o tamanho compacto do quadro */
+  margin: 0 auto;
+}
+
+/* Container das imagens */
+.img-container {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* Efeito zoom ao passar mouse */
+.img-container:hover img {
+  transform: scale(1.05);
+}
+
+/* Overlay com título */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.842), transparent);
+  color: #fff;
+}
+
+.overlay h5 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Tamanhos proporcionais */
+.big-square {
+  aspect-ratio: 1 / 1;  /* quadrado maior */
+  height: 100%;
+}
+
+.rect {
+  flex: 2; /* retângulo ocupa mais espaço (metade de cima) */
+  aspect-ratio: auto; /* libera proporção */
+}
+
+.d-flex.gap-3 .small-square {
+  flex: 1; /* dois quadrados menores dividem espaço igualmente */
+  aspect-ratio: auto; /* libera proporção */
+}
+
+/* Ajusta layout para que direita = altura da esquerda */
+.intranet-container .row {
+  align-items: stretch; /* faz as colunas terem mesma altura */
+}
+
+.col-md-6.d-flex.flex-column.gap-3 {
+  height: 100%; /* garante que ocupe altura toda */
+}
+
+
+/* ANIVERSARIANTES */
+.sidebar-aniversariantes {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  min-height: auto;
+  height: auto;
+}
+
+.sidebar-aniversariantes .titulo-aniversariantes {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: #00558c;
+}
+
+.lista-aniversariantes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lista-aniversariantes li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+}
+
+.lista-aniversariantes li:last-child {
+  border-bottom: none;
+}
+
+
+/* LINKS UTEIS */
+/* Título da seção */
+.titulo-links {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #00558c;
+  margin-bottom: 15px;
+}
+
+/* Card horizontal */
+.card-link-horizontal {
+  width: 250px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #00558C;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  padding: 15px 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.link-util {
+  text-decoration: none;
+  width: 250px;
+}
+
+.card-link-horizontal:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.card-link-horizontal span {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+/* Ícone */
+.icon-link-horizontal {
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+/* CLIMA */
+
+/* Sidebar clima */
+.sidebar-clima {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.titulo-clima {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: #00558c;
+}
+
+/* Card individual do clima */
+.clima-card {
+  background: #f5f5f5;
+  border-radius: 8px;
+  padding: 8px 12px 12px 12px;
+  margin-bottom: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.clima-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.clima-cidade-topo {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #00558c;
+  margin-bottom: 4px;
+}
+
+.clima-info .clima-temp {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #00558c;
+}
+
+.clima-desc {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.cidade-temp {
+  font-weight: 600;
+  font-size: 0.7rem;
+  color: #00558c;
+}
+
+.clima-cidade {
+  font-weight: 700;
+}
+
+.clima-icon {
+  color: #00558c
+}
+
+/* Responsividade: empilha no mobile */
+@media (max-width: 768px) {
+  .col-md-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}

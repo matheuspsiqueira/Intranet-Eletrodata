@@ -76,39 +76,6 @@
 }
 
 
-/* ANIVERSARIANTES */
-.sidebar-aniversariantes {
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-  min-height: auto;
-  height: auto;
-}
-
-.sidebar-aniversariantes .titulo-aniversariantes {
-  font-weight: 700;
-  font-size: 1.1rem;
-  margin-bottom: 15px;
-  color: #00558c;
-}
-
-.lista-aniversariantes {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.lista-aniversariantes li {
-  padding: 8px 0;
-  border-bottom: 1px solid #eee;
-  font-size: 0.95rem;
-}
-
-.lista-aniversariantes li:last-child {
-  border-bottom: none;
-}
-
-
 /* LINKS UTEIS */
 /* Título da seção */
 .titulo-links {
@@ -116,6 +83,11 @@
   font-size: 1.2rem;
   color: #00558c;
   margin-bottom: 15px;
+}
+
+.links-uteis {
+  max-width: 770px;
+  margin: 0 auto;
 }
 
 /* Card horizontal */
@@ -152,6 +124,133 @@
   font-size: 1.5rem;
   color: #ffffff;
 }
+
+
+
+/* SISTEMAS CORPORATIVOS */
+#sistemas-corporativos .card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+}
+
+#sistemas-corporativos .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+
+/* Ícone ganha um leve destaque no hover */
+#sistemas-corporativos .card:hover i {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+/* Botão com leve darken no hover */
+#sistemas-corporativos .card .btn {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#sistemas-corporativos .card .btn:hover {
+  transform: scale(1.05);
+  filter: brightness(0.9);
+}
+
+/* Personalização do card */
+.pgi-card i {
+  color: #E0004D; /* cor do ícone */
+}
+
+.pgi-card .btn {
+  background-color: #E0004D; /* cor do botão */
+  color: white; /* cor do texto do botão */
+  border: none; /* opcional, remove a borda padrão */
+}
+
+.pgi-card .btn:hover {
+  background-color: #E0004D; /* cor ao passar o mouse */
+}
+
+
+
+/* Estilo TI Informa */
+#ti-informa h2 {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #343a40; /* tom mais escuro para destaque */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.ti-banner {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 20px 25px;
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb); /* gradiente suave azul */
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.ti-banner img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.ti-text {
+  text-align: left;
+  flex: 1; /* faz o texto ocupar o espaço restante */
+}
+
+.ti-text p {
+  margin: 8px 0;
+  font-size: 1.25rem;
+  color: #1e293b; /* cor escura para leitura */
+  line-height: 1.5;
+}
+
+
+
+/* ANIVERSARIANTES */
+.sidebar-aniversariantes, .sidebar-governamentais, .sidebar-bancos {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  min-height: auto;
+  height: auto;
+}
+
+.sidebar-bancos {
+  margin-bottom: 30px;
+}
+
+.sidebar-aniversariantes .titulo-aniversariantes, .sidebar-governamentais .titulo-governamentais, .sidebar-bancos .titulo-bancos {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: #00558c;
+}
+
+.lista-aniversariantes, .lista-governamentais, .lista-bancos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lista-aniversariantes li, .lista-governamentais li, .lista-bancos li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+}
+
+.lista-aniversariantes li:last-child {
+  border-bottom: none;
+}
+
+
+
 
 /* CLIMA */
 
@@ -213,6 +312,80 @@
 
 .clima-icon {
   color: #00558c
+}
+
+
+/* SERVIÇOS */
+.sidebar-servicos {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.titulo-servicos {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: #00558c;
+}
+
+.lista-servicos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lista-servicos li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+}
+
+.lista-servicos li:last-child {
+  border-bottom: none;
+}
+
+/* Nome do sistema */
+.servico-nome {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Status */
+.status-ok {
+  background-color: #28a745;
+  color: white;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  width: 80px;
+  text-align: center;
+}
+
+.status-warning {
+  background-color: #ffc107;
+  color: black;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  width: 80px;
+  text-align: center;
+}
+
+.status-error {
+  background-color: #dc3545;
+  color: white;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  width: 80px;
+  text-align: center;
 }
 
 /* Responsividade: empilha no mobile */

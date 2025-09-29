@@ -18,7 +18,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-gradient fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="{% url 'index' %}">
       <img src="{% static '/img/Logo.png'%}" alt="Logo Eletrodata">
     </a>
     <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
@@ -27,32 +27,11 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="navmenu">
       <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-          <a class="nav-link" href="#">A Eletrodata</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Quem Somos</a></li>
-            <li><a class="dropdown-item" href="#">Ética e Compliance</a></li>
-            <li><a class="dropdown-item" href="#">Segmentos e Clientes</a></li>
-            <li><a class="dropdown-item" href="#">Trabalhe conosco</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link" href="#">Serviços</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Manutenção Predial e Industrial</a></li>
-            <li><a class="dropdown-item" href="#">Gestão de Facilities</a></li>
-            <li><a class="dropdown-item" href="#">Gestão de Sistemas Críticos</a></li>
-            <li><a class="dropdown-item" href="#">HVAC</a></li>
-            <li><a class="dropdown-item" href="#">Telecomunicações</a></li>
-            <li><a class="dropdown-item" href="#">Construção Civil</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item"><a class="nav-link" href="#">Vagas Disponíveis</a></li>
+        
+        <li class="nav-item"><a class="nav-link" href="https://e3engenharialtda.pandape.infojobs.com.br/?_gl=1*1xwm7di*_gcl_au*MjExMzE5ODUwMi4xNzU4NjM5NjAzLjE3OTM1MzYwMDMuMTc1ODY0ODIxMS4xNzU4NjQ4NDM3*_ga*MTkyMDA1NjAzNC4xNzM3Mzc3MzAz*_ga_BLEQGRBWCW*czE3NTg2NTQxNDgkbzI5MCRnMSR0MTc1ODY1NTcxNyRqMjckbDAkaDA.&Salary=null&SalaryUpper=true&Deficiency=2&IdLocation2List=64">Vagas Disponíveis</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Ouvidoria</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Corporativo</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Contato</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://webmail.eletrodataengenharia.com.br/">Webmail</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contatos</a></li>
       </ul>
     </div>
   </div>
@@ -73,7 +52,7 @@
           <a href="#" class="img-container big-square">
             <img src="{% static 'img/Compliance.png' %}" alt="Mais de 50 anos de história">
             <div class="overlay">
-              <h5>Mais de 50 anos de História...</h5>
+              <h5>*</h5>
             </div>
           </a>
         </div>
@@ -85,7 +64,7 @@
           <a href="#" class="img-container rect">
             <img src="{% static 'img/etica.png' %}" alt="Evento novembro azul">
             <div class="overlay">
-              <h5>2ª edição Corrida Outubro Rosa e Novembro Azul</h5>
+              <h5>*</h5>
             </div>
           </a>
 
@@ -94,13 +73,13 @@
             <a href="#" class="img-container small-square flex-fill">
               <img src="{% static 'img/carrosel-1.png' %}" alt="Equilíbrio é vida!">
               <div class="overlay">
-                <h5>Equilíbrio é vida!</h5>
+                <h5>*</h5>
               </div>
             </a>
             <a href="#" class="img-container small-square flex-fill">
               <img src="{% static 'img/bg-etica.png' %}" alt="Campanha Setembro Amarelo">
               <div class="overlay">
-                <h5>Campanha Setembro Amarelo!</h5>
+                <h5>*</h5>
               </div>
             </a>
           </div>
@@ -109,7 +88,7 @@
       </div>
 
       <!-- Links Úteis -->
-      <div class="mt-4">
+      <div class="mt-4 links-uteis">
         <h5 class="titulo-links">🔗 Links Úteis</h5>
         <div class="row g-3">
 
@@ -123,7 +102,7 @@
           </div>
 
           <div class="col-md-4">
-            <a href="#" class="link-util">
+            <a href="#sistemas-corporativos" class="link-util">
               <div class="card-link-horizontal">
                 <i class="bi bi-laptop-fill icon-link-horizontal"></i>
                 <span>Sistemas corporativos</span>
@@ -132,7 +111,7 @@
           </div>
 
           <div class="col-md-4">
-            <a href="#" class="link-util">
+            <a href="https://eletrodataengenharia.com.br/" target="_blank" class="link-util">
               <div class="card-link-horizontal">
                 <i class="bi bi-globe2 icon-link-horizontal"></i>
                 <span>Site</span>
@@ -149,8 +128,131 @@
             </a>
           </div>
 
+          <div class="col-md-4">
+            <a href="{% url 'etica_compliance' %}" target="_blank" class="link-util">
+              <div class="card-link-horizontal">
+                <i class="bi bi-shield-check icon-link-horizontal"></i>
+                <span>Ética e Compliance</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-md-4">
+            <a href="http://helpdesk.eletrodataengenharia.com.br:8090/front/ticket.form.php" target="_blank" class="link-util">
+              <div class="card-link-horizontal">
+                <i class="bi bi-headset icon-link-horizontal"></i>
+                <span>Abertura de chamado</span>
+              </div>
+            </a>
+          </div>
+
         </div>
       </div>
+
+      <!-- Seção Sistemas Corporativos -->
+      <div id="sistemas-corporativos" class="container my-5">
+        <h2 class="text-center mb-4">🌐 Sistemas Corporativos</h2>
+        
+        <div class="row g-4 justify-content-center">
+          <!-- Sistema 1 - FLUIG -->
+          <div class="col-md-4 col-lg-3">
+            <div class="card shadow-sm h-100 text-center">
+              <div class="card-body">
+                <i class="bi bi-diagram-3-fill fs-1 text-primary mb-3"></i>
+                <h5 class="card-title">FLUIG</h5>
+                <p class="card-text">Plataforma de processos colaborativos.</p>
+                <a href="#" target="_blank" class="btn btn-primary">Acessar</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sistema 2 - Nimbi -->
+          <div class="col-md-4 col-lg-3">
+            <div class="card shadow-sm h-100 text-center">
+              <div class="card-body">
+                <i class="bi bi-cart-fill fs-1 text-success mb-3"></i>
+                <h5 class="card-title">Nimbi</h5>
+                <p class="card-text">Portal de compras e gestão de fornecedores.</p>
+                <a href="#" target="_blank" class="btn btn-success">Acessar</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sistema 3 - GLPI -->
+          <div class="col-md-4 col-lg-3">
+            <div class="card shadow-sm h-100 text-center">
+              <div class="card-body">
+                <i class="bi bi-headset fs-1 text-info mb-3"></i>
+                <h5 class="card-title">GLPI</h5>
+                <p class="card-text">Abertura, gestão e acompanhamento de chamados de TI.</p>
+                <a href="#" target="_blank" class="btn btn-info">Acessar</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sistema 4 - PGI -->
+          <div class="col-md-4 col-lg-3">
+            <div class="card shadow-sm h-100 text-center pgi-card">
+              <div class="card-body">
+                <i class="bi bi-folder fs-1 mb-3"></i>
+                <h5 class="card-title">PGI</h5>
+                <p class="card-text">Acervo de documentos da empresa.</p>
+                <a href="https://www.dropbox.com/login?cont=%2Fhome%2FNAS%2520PGI%2FPGI" target="_blank" class="btn">Acessar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seção TI Informa com Carrossel -->
+      <section id="ti-informa" class="container my-5">
+        <h2 class="text-center mb-4">💻 TI Informa</h2>
+
+        <div id="tiCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+          <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+              <div class="ti-banner d-flex align-items-center gap-4 p-3 rounded shadow-sm">
+                <img src="{% static 'img/carrosel-3.png' %}" alt="TI informa" class="img-fluid rounded" style="max-width:300px;">
+                <div class="ti-text">
+                  <p>O Fluig ficará fora do ar para manutenção no dia <strong>30/09</strong>.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+              <div class="ti-banner d-flex align-items-center gap-4 p-3 rounded shadow-sm">
+                <img src="{% static 'img/carrosel-1.png' %}" alt="TI informa" class="img-fluid rounded" style="max-width:300px;">
+                <div class="ti-text">
+                  <p>Descubra como criar uma senha mais segura para proteger seus dados.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-item">
+              <div class="ti-banner d-flex align-items-center gap-4 p-3 rounded shadow-sm">
+                <img src="{% static 'img/ambientes.png' %}" alt="TI informa" class="img-fluid rounded" style="max-width:300px;">
+                <div class="ti-text">
+                  <p>Você sabia? O primeiro computador comercial foi lançado em 1951.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controles -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#tiCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#tiCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Próximo</span>
+          </button>
+        </div>
+      </section>
+
 
     </div>
 
@@ -168,50 +270,104 @@
         </ul>
       </div>
 
+      <!-- Admitidos do Mês -->
+      <div class="sidebar-aniversariantes p-3">
+        <h5 class="titulo-aniversariantes">👨‍💼 Admitidos do mês</h5>
+        <ul class="lista-aniversariantes">
+          <li>Matheus Siqueira - <strong>Assist. de TI</strong></li>
+          <li>Matheus Siqueira - <strong>Assist. de TI</strong></li>
+          <li>Matheus Siqueira - <strong>Assist. de TI</strong></li>
+          <li>Matheus Siqueira - <strong>Assist. de TI</strong></li>
+        </ul>
+      </div>
+
       <!-- Clima -->
-<div class="sidebar-clima p-3">
-  <h5 class="titulo-clima">☀️ Clima</h5>
+      <div class="sidebar-clima p-3">
+        <h5 class="titulo-clima">☀️ Clima</h5>
 
-<!-- Cidade 1 -->
-<div class="clima-card">
-  <div class="clima-cidade-topo">Rio de Janeiro - RJ</div>
-  <div class="clima-info d-flex align-items-center justify-content-between mt-1">
-    <div class="d-flex align-items-center gap-2">
-      <i class="bi bi-sun-fill clima-icon"></i>
-      <span class="clima-temp">28°C</span>
+        <!-- Cidade 1 -->
+        <div class="clima-card">
+          <div class="clima-cidade-topo">Rio de Janeiro - RJ</div>
+          <div class="clima-info d-flex align-items-center justify-content-between mt-1">
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-sun-fill clima-icon"></i>
+              <span class="clima-temp">28°C</span>
+            </div>
+            <span class="clima-desc">Parcialmente ensolarado</span>
+          </div>
+        </div>
+
+        <!-- Cidade 2 -->
+        <div class="clima-card">
+          <div class="clima-cidade-topo">São Paulo - SP</div>
+          <div class="clima-info d-flex align-items-center justify-content-between mt-1">
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-cloud-fill clima-icon"></i>
+              <span class="clima-temp">22°C</span>
+            </div>
+            <span class="clima-desc">Nublado</span>
+          </div>
+        </div>
+
+        <!-- Cidade 3 -->
+        <div class="clima-card">
+          <div class="clima-cidade-topo">Salvador - BA</div>
+          <div class="clima-info d-flex align-items-center justify-content-between mt-1">
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-cloud-rain-fill clima-icon"></i>
+              <span class="clima-temp">18°C</span>
+            </div>
+            <span class="clima-desc">Chuva leve</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Serviços -->
+      <div class="sidebar-servicos p-3">
+        <h5 class="titulo-servicos">💻 Serviços</h5>
+        <ul class="lista-servicos">
+          <li>
+            <span class="servico-nome">Nimbi</span>
+            <span class="status-ok">Ativo</span>
+          </li>
+          <li>
+            <span class="servico-nome">Fluig</span>
+            <span class="status-warning">Oscilando</span>
+          </li>
+          <li>
+            <span class="servico-nome">Meu RH</span>
+            <span class="status-error">Inativo</span>
+          </li>
+        </ul>
+      </div>
+
+
+      <!--Governamentais-->
+      <div class="sidebar-governamentais p-3">
+        <h5 class="titulo-governamentais">🏛 Governamentais </h5>
+        <ul class="lista-governamentais">
+          <li><strong>Prefeitura </strong><a href="https://www.laurodefreitas.ba.gov.br/site/">Lauro de Freitas - BA</a></li>
+          <li><strong>Prefeitura </strong><a href="https://prefeitura.rio/">Rio de Janeiro - RJ</a></li>
+          <li><strong>Notas Fiscais </strong><a href="https://nfae.fazenda.rj.gov.br/sefaz-dfe-nfae/paginas/inicio.faces">Rio de Janeiro - RJ</a></li>
+        </ul>
+      </div>
+
+      <!--Bancos-->
+      <div class="sidebar-bancos p-3">
+        <h5 class="titulo-bancos">💰 Bancos </h5>
+        <ul class="lista-bancos">
+          <li><a href="#">Itaú</a></li>
+          <li><a href="#">Caixa</a></li>
+        </ul>
+      </div>
+
+
     </div>
-    <span class="clima-desc">Parcialmente ensolarado</span>
-  </div>
-</div>
-
-<!-- Cidade 2 -->
-<div class="clima-card">
-  <div class="clima-cidade-topo">São Paulo - SP</div>
-  <div class="clima-info d-flex align-items-center justify-content-between mt-1">
-    <div class="d-flex align-items-center gap-2">
-      <i class="bi bi-cloud-fill clima-icon"></i>
-      <span class="clima-temp">22°C</span>
-    </div>
-    <span class="clima-desc">Nublado</span>
-  </div>
-</div>
-
-<!-- Cidade 3 -->
-<div class="clima-card">
-  <div class="clima-cidade-topo">Salvador - BA</div>
-  <div class="clima-info d-flex align-items-center justify-content-between mt-1">
-    <div class="d-flex align-items-center gap-2">
-      <i class="bi bi-cloud-rain-fill clima-icon"></i>
-      <span class="clima-temp">18°C</span>
-    </div>
-    <span class="clima-desc">Chuva leve</span>
-  </div>
-</div>
-
-</div>
 
 
-    </div>
+    
+
+
   </div>
 </div>
 

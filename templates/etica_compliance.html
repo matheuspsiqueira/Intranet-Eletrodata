@@ -1,0 +1,116 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eletrodata Engenharia</title>
+  <link rel="icon" href="{% static 'img/logo1.png' %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/base1.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style_etica.css' %}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-gradient fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'index' %}">
+      <img src="{% static '/img/Logo.png'%}" alt="Logo Eletrodata">
+    </a>
+    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navmenu">
+      <ul class="navbar-nav">
+        
+        <li class="nav-item"><a class="nav-link" href="https://e3engenharialtda.pandape.infojobs.com.br/?_gl=1*1xwm7di*_gcl_au*MjExMzE5ODUwMi4xNzU4NjM5NjAzLjE3OTM1MzYwMDMuMTc1ODY0ODIxMS4xNzU4NjQ4NDM3*_ga*MTkyMDA1NjAzNC4xNzM3Mzc3MzAz*_ga_BLEQGRBWCW*czE3NTg2NTQxNDgkbzI5MCRnMSR0MTc1ODY1NTcxNyRqMjckbDAkaDA.&Salary=null&SalaryUpper=true&Deficiency=2&IdLocation2List=64">Vagas Disponíveis</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Ouvidoria</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://webmail.eletrodataengenharia.com.br/">Webmail</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contatos</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!--HERO-->
+  <section class="hero" id="hero">
+    <div class="overlay"></div>
+    <div class="container">
+      <h1><strong>Ética e Compliance</strong></h1>
+      <div class="linha"></div>
+    </div>
+  </section>
+
+
+  <!--ETICA-->
+    <section class="etica">
+        <div class="container">
+            <div class="etica-conteudo">
+                <div class="texto">
+                    <h1><strong>Ética:</strong> o mais essencial dos princípios</h1>
+                    <div class="linha"></div>
+                    <p>
+                    Fundada em 1986, a Eletrodata Engenharia é referência nacional em soluções especializadas em manutenção predial e industrial, expandindo nossa atuação para a gestão de facilities, obras, montagens industriais e telecomunicações. Com mais de 35 anos de mercado, nos destacamos por oferecer serviços integrados com foco em excelência operacional, segurança e eficiência.
+                    </p>
+                </div>
+                <div class="imagem">
+                    <img src="{% static 'img/etica.png' %}" alt="Imagem representando ética">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--COMPLIANCE-->
+    <section class="compliance">
+        <div class="container">
+            <h1>Compliance</h1>
+            <div class="linha"></div>
+            <div class="compliance-conteudo">
+                <div class="texto">
+                    <p>A Eletrodata Engenharia estabelece seu compromisso em implementar, manter e melhorar continuamente o desempenho do seu Programa de Integridade Corporativa (PIC), com o objetivo de incorporar a referida sistemática na condução de seus negócios.</p>
+                    <p>Conheça o documento que orienta nossas ações.</p>
+                    <p>Clique abaixo e faça o download do PIC – PROGRAMA DE INTEGRIDADE CORPORATIVA (COMPLIANCE)</p>
+                </div>
+                <div class="imagem">
+                    <img src="{% static 'img/Compliance.png' %}" alt="Imagem representando compliance">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--Politica-->
+    <section class="politica">
+        <div class="container">
+            <h1>Política de Privacidade</h1>
+            <div class="linha"></div>
+            <div class="politica-conteudo">
+              <div class="imagem">
+                <img src="{% static 'img/LGPD.png' %}" alt="Imagem representando politica">
+              </div>
+              <div class="texto">
+                <p>A Lei Geral de Proteção de Dados (LGPD), n° 13.709 , foi sancionada em agosto de 2018 e entrou em vigor em setembro de 2020, com principal objetivo de garantir transparência no uso da proteção dos dados pessoais das pessoas físicas em quaisquer meios. Esta lei passou por uma renovação quanto a Lei nº 12.965, de 23 de abril de 2014, chamada também de Marco Civil da Internet, que tinha por objetivo monitorar esse tipo de transação.</p>
+                <p>O nosso compromisso com a privacidade visa garantir a proteção dos dados pessoais e segurança das informações, em conformidade com as legislações vigentes.</p>
+              </div>
+          </div>
+    </section>
+
+
+    <!--E-MAIL-->
+
+    <section class="email">
+      <div class="container">
+        <p>Em caso de dúvidas, solicitações ou reclamações, gentileza entrar em contato com o nosso canal exclusivo através do e-mail: <span class="email-cor">lgpd@eletrodataengenharia.com.br</span></p>
+      </div>
+    </section>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

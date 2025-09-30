@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from .models import TiInforma
-import requests
+from dotenv import load_dotenv
+import requests, os
 
+load_dotenv()
 
 # CLIMA
-API_KEY = '83994d6e956353c87b84ed10a6bd752f'
+API_KEY = str(os.getenv('API_KEY'))
 
 CIDADES = [
     {'nome': 'Rio de Janeiro', 'uf': 'RJ', 'codigo': 'Rio de Janeiro,BR'},

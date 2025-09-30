@@ -204,41 +204,27 @@
         </div>
       </div>
 
-      <!-- Seção TI Informa com Carrossel -->
+      <!--TI INFORMA-->
       <section id="ti-informa" class="container my-5">
         <h2 class="text-center mb-4">💻 TI Informa</h2>
 
         <div id="tiCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
           <div class="carousel-inner">
-            <!-- Slide 1 -->
-            <div class="carousel-item active">
-              <div class="ti-banner d-flex align-items-center gap-4 p-3 rounded shadow-sm">
-                <img src="{% static 'img/carrosel-3.png' %}" alt="TI informa" class="img-fluid rounded" style="max-width:300px;">
-                <div class="ti-text">
-                  <p>O Fluig ficará fora do ar para manutenção no dia <strong>30/09</strong>.</p>
-                </div>
-              </div>
-            </div>
 
-            <!-- Slide 2 -->
-            <div class="carousel-item">
-              <div class="ti-banner d-flex align-items-center gap-4 p-3 rounded shadow-sm">
-                <img src="{% static 'img/carrosel-1.png' %}" alt="TI informa" class="img-fluid rounded" style="max-width:300px;">
-                <div class="ti-text">
-                  <p>Descubra como criar uma senha mais segura para proteger seus dados.</p>
+            {% for item in ti_informa %}
+              <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <div class="ti-banner d-flex align-items-center gap-4 p-3 rounded shadow-sm">
+                  <img src="{{ item.imagem.url }}" alt="{{ item.titulo }}" 
+                      class="img-fluid rounded" style="max-width:300px;">
+                  <div class="ti-text">
+                    <p>{{ item.descricao|safe }}</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            {% empty %}
+              <p class="text-center">Nenhum comunicado disponível.</p>
+            {% endfor %}
 
-            <!-- Slide 3 -->
-            <div class="carousel-item">
-              <div class="ti-banner d-flex align-items-center gap-4 p-3 rounded shadow-sm">
-                <img src="{% static 'img/ambientes.png' %}" alt="TI informa" class="img-fluid rounded" style="max-width:300px;">
-                <div class="ti-text">
-                  <p>Você sabia? O primeiro computador comercial foi lançado em 1951.</p>
-                </div>
-              </div>
-            </div>
           </div>
 
           <!-- Controles -->
@@ -285,41 +271,18 @@
       <div class="sidebar-clima p-3">
         <h5 class="titulo-clima">☀️ Clima</h5>
 
-        <!-- Cidade 1 -->
+        {% for clima in clima_lista %}
         <div class="clima-card">
-          <div class="clima-cidade-topo">Rio de Janeiro - RJ</div>
+          <div class="clima-cidade-topo">{{ clima.cidade }}</div>
           <div class="clima-info d-flex align-items-center justify-content-between mt-1">
             <div class="d-flex align-items-center gap-2">
-              <i class="bi bi-sun-fill clima-icon"></i>
-              <span class="clima-temp">28°C</span>
+              <i class="bi {{ clima.icon_class }} clima-icon"></i>
+              <span class="clima-temp">{{ clima.temperatura }}°C</span>
             </div>
-            <span class="clima-desc">Parcialmente ensolarado</span>
+            <span class="clima-desc">{{ clima.descricao }}</span>
           </div>
         </div>
-
-        <!-- Cidade 2 -->
-        <div class="clima-card">
-          <div class="clima-cidade-topo">São Paulo - SP</div>
-          <div class="clima-info d-flex align-items-center justify-content-between mt-1">
-            <div class="d-flex align-items-center gap-2">
-              <i class="bi bi-cloud-fill clima-icon"></i>
-              <span class="clima-temp">22°C</span>
-            </div>
-            <span class="clima-desc">Nublado</span>
-          </div>
-        </div>
-
-        <!-- Cidade 3 -->
-        <div class="clima-card">
-          <div class="clima-cidade-topo">Salvador - BA</div>
-          <div class="clima-info d-flex align-items-center justify-content-between mt-1">
-            <div class="d-flex align-items-center gap-2">
-              <i class="bi bi-cloud-rain-fill clima-icon"></i>
-              <span class="clima-temp">18°C</span>
-            </div>
-            <span class="clima-desc">Chuva leve</span>
-          </div>
-        </div>
+        {% endfor %}
       </div>
 
       <!-- Serviços -->
@@ -356,8 +319,8 @@
       <div class="sidebar-bancos p-3">
         <h5 class="titulo-bancos">💰 Bancos </h5>
         <ul class="lista-bancos">
-          <li><a href="#">Itaú</a></li>
-          <li><a href="#">Caixa</a></li>
+          <li><a href="https://www.itau.com.br/" target="_blank">Itaú</a></li>
+          <li><a href="https://www.caixa.gov.br/" target="_blank">Caixa</a></li>
         </ul>
       </div>
 

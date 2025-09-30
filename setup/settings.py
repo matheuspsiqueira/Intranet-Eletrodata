@@ -16,6 +16,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'ckeditor',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -108,3 +109,24 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_TRUSTED_ORIGINS = [
     "https://91bd16cc5e30.ngrok-free.app/"
 ]
+
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
+
+
+CKEDITOR_CONFIGS = {
+    "default": {
+        "skin": "moono-lisa",
+        "toolbar_Basic": [
+            ["Bold", "Italic", "Underline"],
+            ["NumberedList", "BulletedList"],
+            ["Link", "Unlink"],
+            ["RemoveFormat"],
+        ],
+        "toolbar": "Basic",
+        "height": 200,
+        "width": "100%",
+        "language": "pt-br",
+    }
+}

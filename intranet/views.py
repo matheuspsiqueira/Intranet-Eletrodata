@@ -110,7 +110,7 @@ def etica_compliance(request):
 # SERVIÇOS STATUS
 
 FLUIG_URL = "http://fluig.totvs.com/healthCheck"
-MEU_RH_URL = "http://meurh.seusistema.com.br"
+MEU_RH_URL = "http://rm.eletrodataengenharia.com.br:8082/web/app/RH/PortalMeuRH/"
 NIMBI_URL = "https://app.nimbi.com.br"
 
 def status_servicos(request):

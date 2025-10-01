@@ -130,3 +130,8 @@ CKEDITOR_CONFIGS = {
         "language": "pt-br",
     }
 }
+
+
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/admin-dashboard/'
+LOGOUT_REDIRECT_URL = '/login/'

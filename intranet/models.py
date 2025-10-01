@@ -16,3 +16,42 @@ class TiInforma(models.Model):
 
     def __str__(self):
         return self.titulo or f"TI Informa #{self.id}"
+
+
+# QUADRO
+
+class Quadro(models.Model):
+    POSICOES = [
+        (1, 'Quadro 1 (Grande à esquerda)'),
+        (2, 'Quadro 2 (Retangular em cima à direita)'),
+        (3, 'Quadro 3 (Quadrado pequeno à direita - esquerda)'),
+        (4, 'Quadro 4 (Quadrado pequeno à direita - direita)'),
+    ]
+
+    posicao = models.PositiveSmallIntegerField(
+        choices=POSICOES,
+        unique=True,  # garante que só tenha 1 item por posição
+        verbose_name="Posição do Quadro"
+    )
+    titulo = models.CharField(max_length=255, verbose_name="Título")
+    imagem = models.ImageField(upload_to="quadros/", verbose_name="Imagem")
+    link = models.URLField(blank=True, null=True, verbose_name="Link (opcional)")
+
+    def __str__(self):
+        return f"{self.get_posicao_display()} - {self.titulo}"
+
+
+
+# ADMITIDOS
+class Admitido(models.Model):
+    nome = models.CharField(max_length=255, verbose_name="Nome")
+    cargo = models.CharField(max_length=255, verbose_name="Cargo")
+    data_admissao = models.DateField(verbose_name="Data de Admissão")
+
+    class Meta:
+        ordering = ['data_admissao']  # ordena por data
+
+    def __str__(self):
+        return f"{self.nome} - {self.cargo}"
+    
+

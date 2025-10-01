@@ -1,5 +1,9 @@
-from django.shortcuts import render
-from .models import TiInforma
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
+from django.http import JsonResponse
+from .models import TiInforma, Quadro, Admitido
+from datetime import date
 from dotenv import load_dotenv
 import requests, os
 
@@ -13,6 +17,33 @@ CIDADES = [
     {'nome': 'São Paulo', 'uf': 'SP', 'codigo': 'São Paulo,BR'},
     {'nome': 'Salvador', 'uf': 'BA', 'codigo': 'Salvador,BR'},
 ]
+
+
+def login_view(request):
+    error_message = None
+
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)  # cria a sessão
+            return redirect("admin_dashboard")  # redireciona para dashboard
+        else:
+            error_message = "Usuário ou senha inválidos."
+
+    return render(request, "login.html", {"error_message": error_message})
+
+
+@login_required
+def admin_dashboard(request):
+    return render(request, "admin_dashboard.html")
+
+
+def logout_view(request):
+    logout(request)
+    return redirect("login")
 
 
 def obter_clima(cidade_codigo, cidade_uf):
@@ -53,9 +84,20 @@ def index(request):
         if clima:
             clima_lista.append(clima)
 
+    
+    # QUADRO
+    quadros = Quadro.objects.all()
+
+
+    # ADMITIDOS
+    hoje = date.today()
+    admitidos_mes = Admitido.objects.filter(data_admissao__month=hoje.month, data_admissao__year=hoje.year)
+
     contexto = {
         "ti_informa": ti_informa,
         "clima_lista": clima_lista,
+        "quadros": quadros,
+        "admitidos_mes": admitidos_mes,
     }
 
     return render (request, 'index.html', contexto)
@@ -63,3 +105,47 @@ def index(request):
 
 def etica_compliance(request):
     return render (request, 'etica_compliance.html')
+
+
+# SERVIÇOS STATUS
+
+FLUIG_URL = "http://fluig.totvs.com/healthCheck"
+MEU_RH_URL = "http://meurh.seusistema.com.br"
+NIMBI_URL = "https://app.nimbi.com.br"
+
+def status_servicos(request):
+    status = {}
+
+    # FLUIG
+    try:
+        r = requests.get(FLUIG_URL, timeout=5)
+        if r.status_code == 200:
+            status["fluig"] = {"texto": "Ativo", "classe": "status-ok"}
+        else:
+            status["fluig"] = {"texto": "Oscilando", "classe": "status-warning"}
+    except requests.exceptions.RequestException:
+        status["fluig"] = {"texto": "Inativo", "classe": "status-error"}
+
+    # MEU RH
+    try:
+        r = requests.get(MEU_RH_URL, timeout=5)
+        if r.status_code == 200:
+            status["meu_rh"] = {"texto": "Ativo", "classe": "status-ok"}
+        else:
+            status["meu_rh"] = {"texto": "Oscilando", "classe": "status-warning"}
+    except requests.exceptions.RequestException:
+        status["meu_rh"] = {"texto": "Inativo", "classe": "status-error"}
+
+    # NIMBI
+    try:
+        r = requests.get(NIMBI_URL, timeout=5)
+        if r.status_code == 200:
+            status["nimbi"] = {"texto": "Ativo", "classe": "status-ok"}
+        else:
+            status["nimbi"] = {"texto": "Oscilando", "classe": "status-warning"}
+    except requests.exceptions.RequestException:
+        status["nimbi"] = {"texto": "Inativo", "classe": "status-error"}
+
+    return JsonResponse(status)
+    
+

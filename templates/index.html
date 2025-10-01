@@ -32,6 +32,7 @@
         <li class="nav-item"><a class="nav-link" href="#">Ouvidoria</a></li>
         <li class="nav-item"><a class="nav-link" href="https://webmail.eletrodataengenharia.com.br/">Webmail</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Contatos</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
       </ul>
     </div>
   </div>
@@ -48,40 +49,59 @@
       <div class="row g-4 quadro">
 
         <!-- Esquerda: Quadrado maior -->
-        <div class="col-md-6 h-100">
-          <a href="#" class="img-container big-square">
-            <img src="{% static 'img/Compliance.png' %}" alt="Mais de 50 anos de história">
-            <div class="overlay">
-              <h5>*</h5>
-            </div>
-          </a>
-        </div>
+          <div class="col-md-6 h-100">
+            {% for quadro in quadros %}
+            {% if quadro.posicao == 1 %}
+            <a href="{{ quadro.link|default:'#' }}" class="img-container big-square">
+              <img src="{{ quadro.imagem.url }}" alt="{{ quadro.titulo }}">
+              <div class="overlay">
+                <h5>{{ quadro.titulo }}</h5>
+              </div>
+            </a>
+            {% endif %}
+        {% endfor %}
+          </div>
+          
 
         <!-- Direita: retangular + 2 quadrados -->
         <div class="col-md-6 d-flex flex-column gap-3 h-100">
 
           <!-- Retangular -->
-          <a href="#" class="img-container rect">
-            <img src="{% static 'img/etica.png' %}" alt="Evento novembro azul">
+           {% for quadro in quadros %}
+            {% if quadro.posicao == 2 %}
+          <a href="{{ quadro.link|default:'#' }}" class="img-container rect">
+            <img src="{{ quadro.imagem.url }}" alt="{{ quadro.titulo }}">
             <div class="overlay">
-              <h5>*</h5>
+              <h5>{{ quadro.titulo }}</h5>
             </div>
           </a>
+          {% endif %}
+        {% endfor %}
 
           <!-- Linha com 2 quadrados -->
           <div class="d-flex gap-3">
-            <a href="#" class="img-container small-square flex-fill">
-              <img src="{% static 'img/carrosel-1.png' %}" alt="Equilíbrio é vida!">
+
+          {% for quadro in quadros %}
+            {% if quadro.posicao == 3 %}
+            <a href="{{ quadro.link|default:'#' }}" class="img-container small-square flex-fill">
+              <img src="{{ quadro.imagem.url }}" alt="{{ quadro.titulo }}">
               <div class="overlay">
-                <h5>*</h5>
+                <h5>{{ quadro.titulo }}</h5>
               </div>
             </a>
-            <a href="#" class="img-container small-square flex-fill">
-              <img src="{% static 'img/bg-etica.png' %}" alt="Campanha Setembro Amarelo">
+            {% endif %}
+        {% endfor %}
+
+        {% for quadro in quadros %}
+            {% if quadro.posicao == 4 %}
+            <a href="{{ quadro.link|default:'#' }}" class="img-container small-square flex-fill">
+              <img src="{{ quadro.imagem.url }}" alt="{{ quadro.titulo }}">
               <div class="overlay">
-                <h5>*</h5>
+                <h5>{{ quadro.titulo }}</h5>
               </div>
             </a>
+            {% endif %}
+        {% endfor %}
           </div>
 
         </div>
@@ -260,10 +280,11 @@
       <div class="sidebar-aniversariantes p-3">
         <h5 class="titulo-aniversariantes">👨‍💼 Admitidos do mês</h5>
         <ul class="lista-aniversariantes">
-          <li>Matheus Siqueira - <strong>Assist. de TI</strong></li>
-          <li>Matheus Siqueira - <strong>Assist. de TI</strong></li>
-          <li>Matheus Siqueira - <strong>Assist. de TI</strong></li>
-          <li>Matheus Siqueira - <strong>Assist. de TI</strong></li>
+          {% for pessoa in admitidos_mes %}
+            <li>{{ pessoa.nome }} - <strong>{{ pessoa.cargo }}</strong></li>
+          {% empty %}
+            <li>Nenhum admitido este mês.</li>
+          {% endfor %}
         </ul>
       </div>
 
@@ -288,18 +309,18 @@
       <!-- Serviços -->
       <div class="sidebar-servicos p-3">
         <h5 class="titulo-servicos">💻 Serviços</h5>
-        <ul class="lista-servicos">
-          <li>
+        <ul id="servicos-lista" class="lista-servicos">
+          <li data-servico="nimbi">
             <span class="servico-nome">Nimbi</span>
-            <span class="status-ok">Ativo</span>
+            <span class="status">Carregando...</span>
           </li>
-          <li>
+          <li data-servico="fluig">
             <span class="servico-nome">Fluig</span>
-            <span class="status-warning">Oscilando</span>
+            <span class="status">Carregando...</span>
           </li>
-          <li>
+          <li data-servico="meu_rh">
             <span class="servico-nome">Meu RH</span>
-            <span class="status-error">Inativo</span>
+            <span class="status">Carregando...</span>
           </li>
         </ul>
       </div>
@@ -335,5 +356,6 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

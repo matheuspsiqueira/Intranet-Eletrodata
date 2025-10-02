@@ -28,7 +28,7 @@
     <div class="collapse navbar-collapse justify-content-end" id="navmenu">
       <ul class="navbar-nav">
         
-        <li class="nav-item"><a class="nav-link" href="https://e3engenharialtda.pandape.infojobs.com.br/?_gl=1*1xwm7di*_gcl_au*MjExMzE5ODUwMi4xNzU4NjM5NjAzLjE3OTM1MzYwMDMuMTc1ODY0ODIxMS4xNzU4NjQ4NDM3*_ga*MTkyMDA1NjAzNC4xNzM3Mzc3MzAz*_ga_BLEQGRBWCW*czE3NTg2NTQxNDgkbzI5MCRnMSR0MTc1ODY1NTcxNyRqMjckbDAkaDA.&Salary=null&SalaryUpper=true&Deficiency=2&IdLocation2List=64">Vagas Disponíveis</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://e3engenharialtda.pandape.infojobs.com.br/?_gl=1*1xwm7di*_gcl_au*MjExMzE5ODUwMi4xNzU4NjM5NjAzLjE3OTM1MzYwMDMuMTc1ODY0ODIxMS4xNzU4NjQ4NDM3*_ga*MTkyMDA1NjAzNC4xNzM3Mzc3MzAz*_ga_BLEQGRBWCW*czE3NTg2NTQxNDgkbzI5MCRnMSR0MTc1ODY1NTcxNyRqMjckbDAkaDA.&Salary=null&SalaryUpper=true&Deficiency=2">Vagas Disponíveis</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Ouvidoria</a></li>
         <li class="nav-item"><a class="nav-link" href="https://webmail.eletrodataengenharia.com.br/">Webmail</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Contatos</a></li>
@@ -52,7 +52,7 @@
           <div class="col-md-6 h-100">
             {% for quadro in quadros %}
             {% if quadro.posicao == 1 %}
-            <a href="{{ quadro.link|default:'#' }}" class="img-container big-square">
+            <a href="{{ quadro.link|default:'#' }}" class="img-container big-square" data-overlay="{{ quadro.imagem_overlay.url }}">
               <img src="{{ quadro.imagem.url }}" alt="{{ quadro.titulo }}">
               <div class="overlay">
                 <h5>{{ quadro.titulo }}</h5>
@@ -69,7 +69,7 @@
           <!-- Retangular -->
            {% for quadro in quadros %}
             {% if quadro.posicao == 2 %}
-          <a href="{{ quadro.link|default:'#' }}" class="img-container rect">
+          <a href="{{ quadro.link|default:'#' }}" class="img-container rect" data-overlay="{{ quadro.imagem_overlay.url }}">
             <img src="{{ quadro.imagem.url }}" alt="{{ quadro.titulo }}">
             <div class="overlay">
               <h5>{{ quadro.titulo }}</h5>
@@ -83,7 +83,7 @@
 
           {% for quadro in quadros %}
             {% if quadro.posicao == 3 %}
-            <a href="{{ quadro.link|default:'#' }}" class="img-container small-square flex-fill">
+            <a href="{{ quadro.link|default:'#' }}" class="img-container small-square flex-fill" data-overlay="{{ quadro.imagem_overlay.url }}">
               <img src="{{ quadro.imagem.url }}" alt="{{ quadro.titulo }}">
               <div class="overlay">
                 <h5>{{ quadro.titulo }}</h5>
@@ -94,7 +94,7 @@
 
         {% for quadro in quadros %}
             {% if quadro.posicao == 4 %}
-            <a href="{{ quadro.link|default:'#' }}" class="img-container small-square flex-fill">
+            <a href="{{ quadro.link|default:'#' }}" class="img-container small-square flex-fill" data-overlay="{{ quadro.imagem_overlay.url }}">
               <img src="{{ quadro.imagem.url }}" alt="{{ quadro.titulo }}">
               <div class="overlay">
                 <h5>{{ quadro.titulo }}</h5>
@@ -102,6 +102,12 @@
             </a>
             {% endif %}
         {% endfor %}
+          </div>
+
+          <!-- Modal Overlay -->
+          <div id="imgOverlay" class="img-overlay">
+            <span class="close">&times;</span>
+            <img class="overlay-content" id="overlayImg">
           </div>
 
         </div>
@@ -122,10 +128,10 @@
           </div>
 
           <div class="col-md-4">
-            <a href="#sistemas-corporativos" class="link-util">
+            <a href="#" class="link-util">
               <div class="card-link-horizontal">
-                <i class="bi bi-laptop-fill icon-link-horizontal"></i>
-                <span>Sistemas corporativos</span>
+                <i class="bi bi-patch-check icon-link-horizontal"></i>
+                <span>Qualidade</span>
               </div>
             </a>
           </div>
@@ -171,7 +177,7 @@
 
       <!-- Seção Sistemas Corporativos -->
       <div id="sistemas-corporativos" class="container my-5">
-        <h2 class="text-center mb-4">🌐 Sistemas Corporativos</h2>
+        <h2 class="text-center mb-4 titulo-secao">🌐 Sistemas Corporativos</h2>
         
         <div class="row g-4 justify-content-center">
           <!-- Sistema 1 - FLUIG -->
@@ -181,7 +187,7 @@
                 <i class="bi bi-diagram-3-fill fs-1 text-primary mb-3"></i>
                 <h5 class="card-title">FLUIG</h5>
                 <p class="card-text">Plataforma de processos colaborativos.</p>
-                <a href="#" target="_blank" class="btn btn-primary">Acessar</a>
+                <a href="http://fluig.eletrodataengenharia.com.br/portal/home" target="_blank" class="btn btn-primary">Acessar</a>
               </div>
             </div>
           </div>
@@ -193,7 +199,7 @@
                 <i class="bi bi-cart-fill fs-1 text-success mb-3"></i>
                 <h5 class="card-title">Nimbi</h5>
                 <p class="card-text">Portal de compras e gestão de fornecedores.</p>
-                <a href="#" target="_blank" class="btn btn-success">Acessar</a>
+                <a href="https://ss001.nimbi.com.br/login/?feedbackmessage=not_registered&locale=pt" target="_blank" class="btn btn-success">Acessar</a>
               </div>
             </div>
           </div>
@@ -205,7 +211,7 @@
                 <i class="bi bi-headset fs-1 text-info mb-3"></i>
                 <h5 class="card-title">GLPI</h5>
                 <p class="card-text">Abertura, gestão e acompanhamento de chamados de TI.</p>
-                <a href="#" target="_blank" class="btn btn-info">Acessar</a>
+                <a href="http://helpdesk.eletrodataengenharia.com.br:8090/front/ticket.form.php" target="_blank" class="btn btn-info">Acessar</a>
               </div>
             </div>
           </div>
@@ -226,7 +232,7 @@
 
       <!--TI INFORMA-->
       <section id="ti-informa" class="container my-5">
-        <h2 class="text-center mb-4">💻 TI Informa</h2>
+        <h2 class="text-center mb-4 titulo-secao">💻 Eletrodata Informa</h2>
 
         <div id="tiCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
           <div class="carousel-inner">
@@ -259,6 +265,47 @@
         </div>
       </section>
 
+      <!-- Seção Estados de Atuação -->
+      <section class="estados">
+        <div class="container">
+
+          <div class="row align-items-start">
+
+            <!-- Coluna Esquerda -->
+            <div class="col-md-6 conteudo-esquerdo">
+              <h2 class="titulo-secao">Estados de atuação</h2>
+              <div class="linha"></div>
+
+              <div class="lista-estados">
+                <p>Alagoas</p>
+                <p>Sergipe</p>
+                <p>Ceará</p>
+                <p>Distrito Federal</p>
+                <p>Espírito Santo</p>
+                <p>Maranhão</p>
+                <p>Mato Grosso</p>
+                <p>São Paulo</p>
+                <p>Tocantins</p>
+                <p>Mato Grosso do Sul</p>
+                <p>Minas Gerais</p>
+                <p>Pernambuco</p>
+                <p>Piauí</p>
+                <p>Rio de Janeiro</p>
+                <p>Rio Grande do Sul</p>
+                <p>Rio Grande do Norte</p>
+                <p>Bahia (CSC)</p>
+              </div>
+            </div>
+
+            <!-- Coluna Direita -->
+            <div class="col-md-6 mapa text-center">
+              <img src="{% static 'img/5.png' %}" alt="mapa" class="img-fluid">
+            </div>
+
+          </div>
+        </div>
+      </section>
+
 
     </div>
 
@@ -288,6 +335,23 @@
         </ul>
       </div>
 
+      <!-- Programa de Promoções -->
+       {% if promocoes_mes %}
+        <div class="sidebar-aniversariantes p-3">
+          <h5 class="titulo-aniversariantes">🏆 Programa de Promoções</h5>
+          <ul class="lista-aniversariantes">
+            {% for pessoa in promocoes_mes %}
+              <li>
+                <strong>{{ pessoa.nome }}</strong> - promovido{% if pessoa.cargo_anterior %} de {{ pessoa.cargo_anterior }}{% endif %} 
+                à <strong>{{ pessoa.novo_cargo }}</strong>
+              </li>
+            {% empty %}
+              <li>Nenhuma promoção este mês.</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+
       <!-- Clima -->
       <div class="sidebar-clima p-3">
         <h5 class="titulo-clima">☀️ Clima</h5>
@@ -308,7 +372,7 @@
 
       <!-- Serviços -->
       <div class="sidebar-servicos p-3">
-        <h5 class="titulo-servicos">💻 Serviços</h5>
+        <h5 class="titulo-servicos">💻 Status de Serviços</h5>
         <ul id="servicos-lista" class="lista-servicos">
           <li data-servico="nimbi">
             <span class="servico-nome">Nimbi</span>

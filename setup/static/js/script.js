@@ -26,3 +26,33 @@ atualizarStatus();
 setInterval(atualizarStatus, 60000);
 
 
+
+
+// OVERLAY MODAL
+
+document.addEventListener("DOMContentLoaded", function() {
+  const overlay = document.getElementById("imgOverlay");
+  const overlayImg = document.getElementById("overlayImg");
+  const closeBtn = document.querySelector(".img-overlay .close");
+
+  document.querySelectorAll(".img-container").forEach(item => {
+    item.addEventListener("click", function(e) {
+      e.preventDefault();
+      const imgUrl = this.getAttribute("data-overlay");
+      if (imgUrl) {
+        overlayImg.src = imgUrl;
+        overlay.style.display = "block";
+      }
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    overlay.style.display = "none";
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === overlay) {
+      overlay.style.display = "none";
+    }
+  });
+});

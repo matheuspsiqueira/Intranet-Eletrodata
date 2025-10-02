@@ -1,3 +1,9 @@
+:root {
+  --default-font: "Roboto";
+  --heading-font: "Roboto",  sans-serif;
+  --nav-font: "Roboto",  sans-serif;
+}
+
 /* NAVBAR */
 
 .navbar-gradient {

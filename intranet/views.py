@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
-from .models import TiInforma, Quadro, Admitido
+from .models import TiInforma, Quadro, Admitido, Promocao
 from datetime import date
 from dotenv import load_dotenv
 import requests, os
@@ -15,7 +15,7 @@ API_KEY = str(os.getenv('API_KEY'))
 CIDADES = [
     {'nome': 'Rio de Janeiro', 'uf': 'RJ', 'codigo': 'Rio de Janeiro,BR'},
     {'nome': 'São Paulo', 'uf': 'SP', 'codigo': 'São Paulo,BR'},
-    {'nome': 'Salvador', 'uf': 'BA', 'codigo': 'Salvador,BR'},
+    {'nome': 'Lauro de Freitas', 'uf': 'BA', 'codigo': 'Lauro de Freitas,BR'},
 ]
 
 
@@ -93,11 +93,18 @@ def index(request):
     hoje = date.today()
     admitidos_mes = Admitido.objects.filter(data_admissao__month=hoje.month, data_admissao__year=hoje.year)
 
+    # PROMOÇÃO
+    promocoes_mes = Promocao.objects.filter(
+        data_promocao__month=hoje.month,
+        data_promocao__year=hoje.year
+    )
+
     contexto = {
         "ti_informa": ti_informa,
         "clima_lista": clima_lista,
         "quadros": quadros,
         "admitidos_mes": admitidos_mes,
+        "promocoes_mes": promocoes_mes,
     }
 
     return render (request, 'index.html', contexto)

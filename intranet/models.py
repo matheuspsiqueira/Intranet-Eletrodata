@@ -19,7 +19,6 @@ class TiInforma(models.Model):
 
 
 # QUADRO
-
 class Quadro(models.Model):
     POSICOES = [
         (1, 'Quadro 1 (Grande à esquerda)'),
@@ -30,11 +29,12 @@ class Quadro(models.Model):
 
     posicao = models.PositiveSmallIntegerField(
         choices=POSICOES,
-        unique=True,  # garante que só tenha 1 item por posição
+        unique=True,
         verbose_name="Posição do Quadro"
     )
     titulo = models.CharField(max_length=255, verbose_name="Título")
-    imagem = models.ImageField(upload_to="quadros/", verbose_name="Imagem")
+    imagem = models.ImageField(upload_to="quadros/", verbose_name="Imagem Normal")
+    imagem_overlay = models.ImageField(upload_to="quadros/overlays/", verbose_name="Imagem para Overlay", blank=True, null=True)
     link = models.URLField(blank=True, null=True, verbose_name="Link (opcional)")
 
     def __str__(self):
@@ -55,3 +55,15 @@ class Admitido(models.Model):
         return f"{self.nome} - {self.cargo}"
     
 
+# PROMOÇÃO
+class Promocao(models.Model):
+    nome = models.CharField(max_length=255, verbose_name="Nome")
+    cargo_anterior = models.CharField(max_length=255, verbose_name="Cargo Anterior", blank=True, null=True)
+    novo_cargo = models.CharField(max_length=255, verbose_name="Novo Cargo")
+    data_promocao = models.DateField(verbose_name="Data da Promoção")
+
+    class Meta:
+        ordering = ['data_promocao']
+
+    def __str__(self):
+        return f"{self.nome} → {self.novo_cargo}"

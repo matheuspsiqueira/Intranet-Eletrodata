@@ -50,6 +50,36 @@
   font-weight: 600;
 }
 
+.img-overlay {
+  display: none; 
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+  padding: 40px 20px;
+}
+.img-overlay .overlay-content {
+  display: block;
+  margin: auto;
+  max-width: none;
+  max-height: none;
+  width: 80%;
+  height: auto;
+}
+.img-overlay .close {
+  position: fixed;
+  top: 15px; right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.img-overlay .close:hover {
+  color: #bbb;
+}
+
 /* Tamanhos proporcionais */
 .big-square {
   aspect-ratio: 1 / 1;  /* quadrado maior */
@@ -128,6 +158,10 @@
 
 
 /* SISTEMAS CORPORATIVOS */
+.titulo-secao{
+  font-size: 1.5rem;
+}
+
 #sistemas-corporativos .card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-radius: 12px;
@@ -173,11 +207,7 @@
 
 /* Estilo TI Informa */
 #ti-informa h2 {
-  font-weight: 700;
-  font-size: 2rem;
   margin-bottom: 20px;
-  color: #343a40; /* tom mais escuro para destaque */
-  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
 .ti-banner {
@@ -209,6 +239,80 @@
   font-size: 1.25rem;
   color: #1e293b; /* cor escura para leitura */
   line-height: 1.5;
+}
+
+
+
+/* ESTADOS DE ATUAÇÃO */
+
+  .estados {
+  position: relative;
+  overflow: hidden;
+  height: 85vh;
+  color: #E0004D;
+}
+
+.estados .container {
+  position: relative;
+  z-index: 2;
+  padding: 40px;
+}
+
+.conteudo-esquerdo {
+  z-index: 3;
+}
+
+.estados .container h2 {
+  color: #000000;
+  margin-bottom: 0px;
+}
+
+.estados .container .linha {
+  width: 27%;
+  border: 2px solid #E0004D;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.lista-estados {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.lista-estados p {
+  background-color: #00558C;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+  flex: 1 1 calc(50% - 10px); /* duas colunas */
+  text-align: center;
+  font-size: 0.9rem;
+  margin: 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  transition: 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lista-estados p:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.mapa {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  pointer-events: none;
+  margin-top: 75px;
+}
+
+.mapa img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  object-fit: contain;
 }
 
 

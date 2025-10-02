@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import TiInforma, Quadro, Admitido
+from .models import TiInforma, Quadro, Admitido, Promocao
 
 @admin.register(TiInforma)
 class TiInformaAdmin(admin.ModelAdmin):
@@ -18,3 +18,9 @@ class AdmitidoAdmin(admin.ModelAdmin):
     list_display = ('nome', 'cargo', 'data_admissao')
     list_filter = ('data_admissao', 'cargo')
     search_fields = ('nome', 'cargo')
+
+@admin.register(Promocao)
+class PromocaoAdmin(admin.ModelAdmin):
+    list_display = ('nome', 'cargo_anterior', 'novo_cargo', 'data_promocao')
+    list_filter = ('data_promocao', 'novo_cargo')
+    search_fields = ('nome', 'novo_cargo')

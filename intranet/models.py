@@ -34,8 +34,18 @@ class Quadro(models.Model):
     )
     titulo = models.CharField(max_length=255, verbose_name="Título")
     imagem = models.ImageField(upload_to="quadros/", verbose_name="Imagem Normal")
-    imagem_overlay = models.ImageField(upload_to="quadros/overlays/", verbose_name="Imagem para Overlay", blank=True, null=True)
+    imagem_overlay = models.ImageField(
+        upload_to="quadros/overlays/",
+        verbose_name="Imagem para Overlay",
+        blank=True,
+        null=True
+    )
     link = models.URLField(blank=True, null=True, verbose_name="Link (opcional)")
+
+    def save(self, *args, **kwargs):
+        # Se já existir um quadro na mesma posição, apaga antes de salvar o novo
+        Quadro.objects.filter(posicao=self.posicao).exclude(pk=self.pk).delete()
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.get_posicao_display()} - {self.titulo}"

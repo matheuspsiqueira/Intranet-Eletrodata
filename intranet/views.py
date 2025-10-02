@@ -22,6 +22,10 @@ CIDADES = [
 def login_view(request):
     error_message = None
 
+    # 🔑 se o usuário já estiver logado, manda direto pro dashboard
+    if request.user.is_authenticated:
+        return redirect("admin_dashboard")
+
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")

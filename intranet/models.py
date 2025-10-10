@@ -30,7 +30,9 @@ class Quadro(models.Model):
     posicao = models.PositiveSmallIntegerField(
         choices=POSICOES,
         unique=True,
-        verbose_name="Posição do Quadro"
+        verbose_name="Posição do Quadro",
+        blank=True,
+        null=True
     )
     titulo = models.CharField(max_length=255, verbose_name="Título")
     imagem = models.ImageField(upload_to="quadros/", verbose_name="Imagem Normal")

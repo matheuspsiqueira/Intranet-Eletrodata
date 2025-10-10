@@ -5,9 +5,9 @@
   margin-right: auto;
 }
 
-/* QUADRO em si */
+/* QUADRO principal */
 .quadro {
-  max-width: 800px; /* mantém o tamanho compacto do quadro */
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -18,8 +18,10 @@
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  flex-shrink: 0;
 }
 
+/* Imagem */
 .img-container img {
   width: 100%;
   height: 100%;
@@ -28,19 +30,18 @@
   transition: transform 0.3s ease;
 }
 
-/* Efeito zoom ao passar mouse */
 .img-container:hover img {
   transform: scale(1.05);
 }
 
-/* Overlay com título */
+/* Overlay */
 .overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   padding: 15px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.842), transparent);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
   color: #fff;
 }
 
@@ -80,29 +81,35 @@
   color: #bbb;
 }
 
-/* Tamanhos proporcionais */
+/* === TAMANHOS FIXOS POR POSIÇÃO === */
+
+/* POSIÇÃO 1 - Grande à esquerda (quadrado grande) */
 .big-square {
-  aspect-ratio: 1 / 1;  /* quadrado maior */
-  height: 100%;
+  width: 380px;   /* largura fixa */
+  height: 380px;  /* altura fixa */
 }
 
+/* POSIÇÃO 2 - Retangular no topo direito */
 .rect {
-  flex: 2; /* retângulo ocupa mais espaço (metade de cima) */
-  aspect-ratio: auto; /* libera proporção */
+  width: 380px;
+  height: 180px;
 }
 
-.d-flex.gap-3 .small-square {
-  flex: 1; /* dois quadrados menores dividem espaço igualmente */
-  aspect-ratio: auto; /* libera proporção */
+/* POSIÇÕES 3 e 4 - Dois quadrados menores */
+.small-square {
+  width: 180px;
+  height: 180px;
 }
 
-/* Ajusta layout para que direita = altura da esquerda */
+/* Garante que direita tenha a mesma altura da esquerda */
 .intranet-container .row {
-  align-items: stretch; /* faz as colunas terem mesma altura */
+  align-items: stretch;
 }
 
+/* Espaçamento e alinhamento das colunas */
 .col-md-6.d-flex.flex-column.gap-3 {
-  height: 100%; /* garante que ocupe altura toda */
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 

@@ -64,9 +64,24 @@
   background-color: #ffffff;
 }
 
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  text-decoration: none;
+}
+
 .navbar-brand img {
   height: 55px;
   margin-left: 15%;
+}
+
+.navbar-brand h1 {
+  font-size: 26px;
+  margin: 0;
+  color: #fff;
+  font-family: 'Roboto';
 }
 
 

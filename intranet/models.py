@@ -42,6 +42,12 @@ class Quadro(models.Model):
         blank=True,
         null=True
     )
+    arquivo = models.FileField(
+        upload_to="quadros/arquivos/",
+        blank=True,
+        null=True,
+        verbose_name="Arquivo (PDF opcional)"
+    )
     link = models.URLField(blank=True, null=True, verbose_name="Link (opcional)")
 
     def save(self, *args, **kwargs):

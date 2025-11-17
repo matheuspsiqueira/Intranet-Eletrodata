@@ -61,13 +61,22 @@
   background-color: rgba(0,0,0,0.9);
   padding: 40px 20px;
 }
-.img-overlay .overlay-content {
+/* Para IMAGENS */
+#overlayImg {
   display: block;
   margin: auto;
-  max-width: none;
-  max-height: none;
-  width: 50%;
-  height: auto;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+/* Para PDFs */
+#overlayPdf {
+  display: block;
+  margin: auto;
+  width: 80%;
+  height: 80%;
+  border: none;
+  background: white;
 }
 .img-overlay .close {
   position: fixed;

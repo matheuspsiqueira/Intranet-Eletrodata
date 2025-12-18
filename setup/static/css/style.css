@@ -220,6 +220,21 @@
 }
 
 
+.protheus-card i {
+  color: #6e0546; /* cor do ícone */
+}
+
+.protheus-card .btn {
+  background-color: #6e0546; /* cor do botão */
+  color: white; /* cor do texto do botão */
+  border: none; /* opcional, remove a borda padrão */
+}
+
+.protheus-card .btn:hover {
+  background-color: #6e0546; /* cor ao passar o mouse */
+}
+
+
 
 /* Estilo TI Informa */
 #ti-informa h2 {

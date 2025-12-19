@@ -235,6 +235,25 @@
 }
 
 
+.bi-card i {
+  color: #c49b2c; /* cor do ícone */
+}
+
+.bi-card .btn {
+  background-color: #c49b2c; /* cor do botão */
+  color: white; /* cor do texto do botão */
+  border: none; /* opcional, remove a borda padrão */
+}
+
+.bi-card .btn:hover {
+  background-color: #c49b2c; /* cor ao passar o mouse */
+}
+
+
+.glpi-card .btn {
+  color: white;
+}
+
 
 /* Estilo TI Informa */
 #ti-informa h2 {

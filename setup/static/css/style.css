@@ -5,11 +5,6 @@
   margin-right: auto;
 }
 
-/* QUADRO principal */
-.quadro {
-  max-width: 800px;
-  margin: 0 auto;
-}
 
 /* Container das imagens */
 .img-container {
@@ -34,6 +29,122 @@
   transform: scale(1.05);
 }
 
+/* GRID PRINCIPAL */
+.quadro-grid {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+
+  display: grid;
+  gap: 16px;
+}
+
+/* Quadro grande à esquerda */
+.pos-1 {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+
+/* Retângulo à direita (em cima dos 3 e 4) */
+.pos-2 {
+  grid-column: 2 / 4;
+  grid-row: 1 / 3;
+}
+
+/* Quadrado inferior esquerdo */
+.pos-3 {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+/* Quadrado inferior direito */
+.pos-4 {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+
+
+/*QUANDO 1 QUADRO*/
+
+.quadro-grid:has(.pos-1):not(:has(.pos-2)) {
+  grid-template-columns: 1fr;
+  grid-template-rows: 380px;
+}
+
+.quadro-grid:has(.pos-1):not(:has(.pos-2)) .pos-1 {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+
+/*QUANDO 2 QUADROS*/
+.quadro-grid:has(.pos-1):has(.pos-2):not(:has(.pos-3)) {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 380px;
+}
+
+.quadro-grid:has(.pos-1):has(.pos-2):not(:has(.pos-3)) .pos-1 {
+  grid-column: 1;
+}
+
+.quadro-grid:has(.pos-1):has(.pos-2):not(:has(.pos-3)) .pos-2 {
+  grid-column: 2;
+}
+
+/*QUANDO 3 QUADROS*/
+.quadro-grid:has(.pos-1):has(.pos-2):has(.pos-3):not(:has(.pos-4)) {
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 190px 190px;
+}
+
+/* grande esquerda */
+.quadro-grid:has(.pos-1):has(.pos-2):has(.pos-3):not(:has(.pos-4)) .pos-1 {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+
+/* topo direita */
+.quadro-grid:has(.pos-1):has(.pos-2):has(.pos-3):not(:has(.pos-4)) .pos-2 {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* baixo direita */
+.quadro-grid:has(.pos-1):has(.pos-2):has(.pos-3):not(:has(.pos-4)) .pos-3 {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+
+/*QUANDO 4 QUADROS*/
+.quadro-grid:has(.pos-1):has(.pos-2):has(.pos-3):has(.pos-4) {
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 190px 190px;
+}
+
+/* grande esquerda */
+.quadro-grid:has(.pos-1):has(.pos-2):has(.pos-3):has(.pos-4) .pos-1 {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+
+/* retângulo em cima */
+.quadro-grid:has(.pos-1):has(.pos-2):has(.pos-3):has(.pos-4) .pos-2 {
+  grid-column: 2 / 4;
+  grid-row: 1;
+}
+
+/* quadrados abaixo */
+.quadro-grid:has(.pos-1):has(.pos-2):has(.pos-3):has(.pos-4) .pos-3 {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.quadro-grid:has(.pos-1):has(.pos-2):has(.pos-3):has(.pos-4) .pos-4 {
+  grid-column: 3;
+  grid-row: 2;
+}
+
 /* Overlay */
 .overlay {
   position: absolute;
@@ -52,32 +163,27 @@
 }
 
 .img-overlay {
-  display: none; 
+  display: none;
   position: fixed;
   z-index: 9999;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  overflow: auto;
+  inset: 0;
   background-color: rgba(0,0,0,0.9);
-  padding: 40px 20px;
+
+  overflow-y: auto;   /* SCROLL VERTICAL */
+  overflow-x: hidden;
+
+  padding: 60px 20px;
 }
+
 /* Para IMAGENS */
 #overlayImg {
   display: block;
-  margin: auto;
-  max-width: 90%;
-  max-height: 90%;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
 }
 
-/* Para PDFs */
-#overlayPdf {
-  display: block;
-  margin: auto;
-  width: 80%;
-  height: 80%;
-  border: none;
-  background: white;
-}
 .img-overlay .close {
   position: fixed;
   top: 15px; right: 35px;
@@ -92,22 +198,11 @@
 
 /* === TAMANHOS FIXOS POR POSIÇÃO === */
 
-/* POSIÇÃO 1 - Grande à esquerda (quadrado grande) */
-.big-square {
-  width: 380px;   /* largura fixa */
-  height: 380px;  /* altura fixa */
-}
-
-/* POSIÇÃO 2 - Retangular no topo direito */
-.rect {
-  width: 380px;
-  height: 180px;
-}
-
-/* POSIÇÕES 3 e 4 - Dois quadrados menores */
+.big-square,
+.rect,
 .small-square {
-  width: 180px;
-  height: 180px;
+  width: auto;
+  height: auto;
 }
 
 /* Garante que direita tenha a mesma altura da esquerda */

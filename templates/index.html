@@ -47,81 +47,32 @@
     <div class="col-md-9">
 
       <!-- Quadro -->
-      <div class="row g-4 quadro">
+<div class="col-12">
+  <div class="quadro-grid">
 
-        <!-- Esquerda: Quadrado maior -->
-          <div class="col-md-6 h-100">
-            {% for quadro in quadros %}
-            {% if quadro.posicao == 1 %}
-            <a href="{{ quadro.link|default:'#' }}" class="img-container big-square" data-overlay="{% if quadro.imagem_overlay %}{{ quadro.imagem_overlay.url }}{% elif quadro.imagem %}{{ quadro.imagem.url }}{% else %}{% endif %}"
-   data-arquivo="{% if quadro.arquivo %}{{ quadro.arquivo.url }}{% endif %}">
-              <img src="{{ quadro.imagem.url }}" alt="{{ quadro.titulo }}">
-              <div class="overlay">
-                <h5>{{ quadro.titulo }}</h5>
-              </div>
-            </a>
-            {% endif %}
-        {% endfor %}
-          </div>
-          
+    {% for quadro in quadros %}
+      <a href="{{ quadro.link|default:'javascript:void(0)' }}"
+         class="img-container pos-{{ quadro.posicao }}"
+         data-overlay="{% if quadro.imagem_overlay %}{{ quadro.imagem_overlay.url }}{% elif quadro.imagem %}{{ quadro.imagem.url }}{% endif %}"
+         data-arquivo="{% if quadro.arquivo %}{{ quadro.arquivo.url }}{% endif %}">
 
-        <!-- Direita: retangular + 2 quadrados -->
-        <div class="col-md-6 d-flex flex-column gap-3 h-100">
+        <img src="{{ quadro.imagem.url }}" alt="{{ quadro.titulo }}">
 
-          <!-- Retangular -->
-           {% for quadro in quadros %}
-            {% if quadro.posicao == 2 %}
-          <a href="javascript:void(0)" class="img-container rect" data-overlay="{% if quadro.imagem_overlay %}{{ quadro.imagem_overlay.url }}{% elif quadro.imagem %}{{ quadro.imagem.url }}{% else %}{% endif %}"
-   data-arquivo="{% if quadro.arquivo %}{{ quadro.arquivo.url }}{% endif %}">
-            <img src="{{ quadro.imagem.url }}" alt="{{ quadro.titulo }}">
-            <div class="overlay">
-              <h5>{{ quadro.titulo }}</h5>
-            </div>
-          </a>
-          {% endif %}
-        {% endfor %}
-
-          <!-- Linha com 2 quadrados -->
-          <div class="d-flex gap-3">
-
-          {% for quadro in quadros %}
-            {% if quadro.posicao == 3 %}
-            <a href="{{ quadro.link|default:'#' }}" class="img-container small-square flex-fill" data-overlay="{% if quadro.imagem_overlay %}{{ quadro.imagem_overlay.url }}{% elif quadro.imagem %}{{ quadro.imagem.url }}{% else %}{% endif %}"
-   data-arquivo="{% if quadro.arquivo %}{{ quadro.arquivo.url }}{% endif %}">
-              <img src="{{ quadro.imagem.url }}" alt="{{ quadro.titulo }}">
-              <div class="overlay">
-                <h5>{{ quadro.titulo }}</h5>
-              </div>
-            </a>
-            {% endif %}
-        {% endfor %}
-
-        {% for quadro in quadros %}
-            {% if quadro.posicao == 4 %}
-            <a href="{{ quadro.link|default:'#' }}" class="img-container small-square flex-fill" data-overlay="{% if quadro.imagem_overlay %}{{ quadro.imagem_overlay.url }}{% elif quadro.imagem %}{{ quadro.imagem.url }}{% else %}{% endif %}"
-   data-arquivo="{% if quadro.arquivo %}{{ quadro.arquivo.url }}{% endif %}">
-              <img src="{{ quadro.imagem.url }}" alt="{{ quadro.titulo }}">
-              <div class="overlay">
-                <h5>{{ quadro.titulo }}</h5>
-              </div>
-            </a>
-            {% endif %}
-        {% endfor %}
-          </div>
-
-          <!-- Modal Overlay -->
-          <div id="imgOverlay" class="img-overlay">
-            <span class="close">&times;</span>
-
-            <!-- Conteúdo da imagem -->
-            <img class="overlay-content" id="overlayImg">
-
-            <!-- Conteúdo PDF -->
-            <iframe id="overlayPdf" class="overlay-content"></iframe>
-          </div>
-
+        <div class="overlay">
+          <h5>{{ quadro.titulo }}</h5>
         </div>
-      </div>
+      </a>
+    {% endfor %}
+
+  </div>
+</div>
+
+<!-- Modal Overlay -->
+  <div id="imgOverlay" class="img-overlay"> 
+    <span class="close">&times;</span> 
+    <!-- Conteúdo da imagem --> 
+     <img class="overlay-content" id="overlayImg"> 
+  </div>
 
       <!-- Links Úteis -->
       <div class="mt-4 links-uteis">
